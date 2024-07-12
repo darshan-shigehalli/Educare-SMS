@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educator Analytics Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Educator Dashboard</h2>
+            <nav>
+                <ul>
+                    <li><a href="faq.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Reports</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <h1>Welcome, Educator</h1>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search students...">
+                    <button onclick="searchStudents()"><i class="fas fa-search"></i></button>
+                </div>
+            </header>
+            <section class="cards">
+                <div class="card">
+                    <h3>Average Grade</h3>
+                    <p id="averageGrade">B+</p>
+                </div>
+                <div class="card">
+                    <h3>Students at Risk</h3>
+                    <p id="studentsAtRisk">5</p>
+                </div>
+                <div class="card">
+                    <h3>Total Students</h3>
+                    <p id="totalStudents">30</p>
+                </div>
+            </section>
+            <section class="filters">
+                <label for="subjectFilter">Filter by Subject:</label>
+                <select id="subjectFilter" onchange="filterBySubject()">
+                    <option value="all">All</option>
+                    <option value="math">Math</option>
+                    <option value="english">English</option>
+                    <option value="science">Science</option>
+                    <option value="history">History</option>
+                    <option value="art">Art</option>
+                </select>
+            </section>
+            <section class="charts">
+                <canvas id="subjectPerformanceChart"></canvas>
+            </section>
+            <section class="students">
+                <h2>Student Performance</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Math</th>
+                            <th>English</th>
+                            <th>Science</th>
+                            <th>History</th>
+                            <th>Art</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                        <!-- Student rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+                <div id="riskStudents" class="risk-section">
+                    <h3>Students at Risk</h3>
+                    <ul id="riskList"></ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dash.js"></script>
+
+</body>
+
+</html>
